@@ -1,0 +1,82 @@
+/* ========= */
+/* VARIABLES */
+/* ========= */
+
+$size: 300px;
+$rotate45: rotate(45deg);
+$red: rgba(255, 0, 0, 0.5);
+$yellow: rgba(255, 255, 0, 0.5);
+$green: rgba(0, 255, 0, 0.5);
+$cyan: rgba(0, 255, 255, 0.5);
+$blue: rgba(0, 0, 255, 0.5);
+
+$colors: $red, $yellow, $green, $cyan, $blue;
+
+
+/* ====== */
+/* STYLES */
+/* ====== */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
+}
+
+.parent:hover {
+  color: orange;
+  font-size: 22px;
+
+  & > div {
+    border: 2px solid;
+    width: 20px;
+  }
+}
+
+body {
+  font-size: 18px;
+	font-family: Helvetica;
+	color: #333;
+	background-color: #eee;
+}
+
+.lotus {
+  width: $size;
+  height: $size;
+  border: 1px solid;
+  position: relative;
+}
+
+.lotus > div {
+  position: absolute;
+  width: $size * 0.66;
+  height: $size * 0.66;
+  border: 1px solid;
+  border-radius: 0 70% 50% 70%;
+  left: 0;
+  top: 70px;
+  transform: $rotate45;
+  transform-origin: $size * 0.5 $size * 0.5;
+  animation-duration: 3000ms;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@for $n from 1 through 5 {
+  .lotus > div:nth-child(#{$n}) {
+    background-color: nth($colors, $n);
+    animation-name: bloom-#{$n};
+    transform: rotate(($n - 2) * 45deg);
+  }
+
+  @keyframes bloom-#{$n} {
+    0% {
+      transform: $rotate45;
+    }
+    100% {
+      transform: rotate(($n - 2) * 45deg);
+    }
+  }
+}
