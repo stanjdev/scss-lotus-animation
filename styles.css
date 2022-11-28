@@ -11,22 +11,6 @@ body {
   min-height: 95vh;
 }
 
-.parent:hover {
-  color: orange;
-  font-size: 22px;
-}
-.parent:hover > div {
-  border: 2px solid;
-  width: 20px;
-}
-
-body {
-  font-size: 18px;
-  font-family: Helvetica;
-  color: #333;
-  background-color: #eee;
-}
-
 .lotus {
   width: 300px;
   height: 300px;
@@ -119,6 +103,15 @@ body {
   100% {
     transform: rotate(135deg);
   }
+}
+/* Nesting example */
+.parent:hover {
+  color: orange;
+  font-size: 22px;
+}
+.parent:hover > div {
+  border: 2px solid;
+  width: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */

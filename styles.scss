@@ -24,23 +24,6 @@ body {
   min-height: 95vh;
 }
 
-.parent:hover {
-  color: orange;
-  font-size: 22px;
-
-  & > div {
-    border: 2px solid;
-    width: 20px;
-  }
-}
-
-body {
-  font-size: 18px;
-	font-family: Helvetica;
-	color: #333;
-	background-color: #eee;
-}
-
 .lotus {
   width: $size;
   height: $size;
@@ -78,5 +61,17 @@ body {
     100% {
       transform: rotate(($n - 2) * 45deg);
     }
+  }
+}
+
+
+/* Nesting example */
+.parent:hover {
+  color: orange;
+  font-size: 22px;
+
+  & > div {
+    border: 2px solid;
+    width: 20px;
   }
 }
